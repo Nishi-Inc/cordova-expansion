@@ -16,5 +16,19 @@ I just created two directories `images` and `sound`. I put 3 images in `/main_ex
 and an MP3 file in `/main_expansion/sound/`.
 8. Run `zip -v -dc -r -x \*.DS_Store -Z store main_expansion main_expansion`. This will create `main_expansion.zip` 
 with 0% compression.
-9. Build the project and upload this APK to Google Play to get the signing key for the expansion file.
+9. Build the project.
+```
+cordova build android --release
+```
+Sign and zipalign it.
+10. Upload the APK to Alpha testing on Google Play. Prepare store listing, publish the app.
+11. Increase androidVersionCode in `config.xml`. Rebuild the APK, sign and zipalign and upload to alpha test mode along with the expansion file.
+12. Grab the name of the uploaded expansion file, once it's uploaded and the Base64 licaence key from "Services and APIs" tab.
+13. Install this plugin
+```
+cordova plugin add https://github.com/agamemnus/cordova-plugin-xapkreader.git
+```
+14. 
+20. If something is not clear refer to [this guide](https://iphonedevlog.wordpress.com/2014/12/12/adding-an-android-apk-expansion-file-to-a-cordova-project/).
+
 
